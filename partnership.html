@@ -13,17 +13,17 @@
             box-sizing: border-box;
         }
         
-        /* HCT Color Palette */
+        /* HCT Color Palette from hct.ph */
         :root {
-            --hct-primary: #1E5A96;
-            --hct-secondary: #00A3E0;
-            --hct-accent: #F39200;
+            --hct-primary: #003366;
+            --hct-secondary: #0066CC;
+            --hct-accent: #FF6600;
+            --hct-light-blue: #E6F2FF;
+            --hct-light-gray: #F5F5F5;
             --hct-dark: #1a1a1a;
-            --hct-light: #f5f5f5;
             --hct-text: #333333;
-            --hct-border: #e0e0e0;
+            --hct-border: #CCCCCC;
             --hct-success: #27ae60;
-            --hct-error: #e74c3c;
         }
         
         body {
@@ -37,8 +37,8 @@
         header {
             background: linear-gradient(135deg, var(--hct-primary) 0%, var(--hct-secondary) 100%);
             color: white;
-            padding: 1rem 0;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            padding: 1.5rem 0;
+            box-shadow: 0 2px 12px rgba(0,51,102,0.15);
             position: sticky;
             top: 0;
             z-index: 100;
@@ -51,17 +51,33 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            gap: 2rem;
         }
         
         .logo-section {
             display: flex;
-            gap: 2rem;
+            gap: 3rem;
             align-items: center;
+            flex: 1;
         }
         
-        .logo-section img {
-            height: 50px;
+        .logo-wrapper {
+            display: flex;
+            align-items: center;
+            height: 70px;
+        }
+        
+        .logo-wrapper img {
+            height: 100%;
+            width: auto;
             object-fit: contain;
+            filter: brightness(1.1);
+        }
+        
+        .logo-divider {
+            width: 2px;
+            height: 50px;
+            background: rgba(255,255,255,0.3);
         }
         
         nav {
@@ -75,6 +91,7 @@
             text-decoration: none;
             font-weight: 500;
             transition: opacity 0.3s ease;
+            font-size: 0.95rem;
         }
         
         nav a:hover {
@@ -99,6 +116,7 @@
             font-size: 2.8rem;
             margin-bottom: 1.5rem;
             line-height: 1.2;
+            font-weight: 700;
         }
         
         .hero .subtitle {
@@ -108,6 +126,7 @@
             max-width: 700px;
             margin-left: auto;
             margin-right: auto;
+            font-weight: 300;
         }
         
         .cta-buttons {
@@ -135,9 +154,9 @@
         }
         
         .btn-primary:hover {
-            background-color: #e08400;
+            background-color: #E55A00;
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(243, 146, 0, 0.3);
+            box-shadow: 0 4px 12px rgba(255, 102, 0, 0.3);
         }
         
         .btn-secondary {
@@ -146,13 +165,59 @@
         }
         
         .btn-secondary:hover {
-            background-color: var(--hct-light);
+            background-color: var(--hct-light-gray);
             transform: translateY(-2px);
+        }
+        
+        /* Partnership Logos Section */
+        .partnership-logos-section {
+            background-color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+        
+        .logos-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 3rem;
+            align-items: center;
+            padding: 3rem 2rem;
+            background: var(--hct-light-blue);
+            border-radius: 12px;
+        }
+        
+        .logo-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .logo-card img {
+            height: 180px;
+            width: auto;
+            object-fit: contain;
+            margin-bottom: 1.5rem;
+            filter: drop-shadow(0 2px 8px rgba(0,51,102,0.1));
+        }
+        
+        .logo-card p {
+            font-weight: 600;
+            color: var(--hct-primary);
+            font-size: 1.15rem;
+        }
+        
+        .logo-plus {
+            font-size: 3rem;
+            color: var(--hct-accent);
+            font-weight: 300;
         }
         
         /* Partnership Highlight */
         .partnership-highlight {
-            background-color: var(--hct-light);
+            background-color: var(--hct-light-gray);
             padding: 4rem 2rem;
         }
         
@@ -201,6 +266,7 @@
             color: var(--hct-primary);
             margin-bottom: 1rem;
             text-align: center;
+            font-weight: 700;
         }
         
         section .section-intro {
@@ -230,6 +296,7 @@
             color: var(--hct-primary);
             font-size: 1.4rem;
             margin-bottom: 1.5rem;
+            font-weight: 700;
         }
         
         .partnership-text ul {
@@ -254,22 +321,9 @@
             font-size: 1.2rem;
         }
         
-        .partnership-logos {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 3rem;
-            flex-wrap: wrap;
-        }
-        
-        .partnership-logos img {
-            max-height: 120px;
-            object-fit: contain;
-        }
-        
         /* Program Benefits */
         .benefits {
-            background-color: var(--hct-light);
+            background-color: var(--hct-light-gray);
         }
         
         .benefits-grid {
@@ -285,12 +339,14 @@
             border-radius: 8px;
             text-align: center;
             box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border-top: 3px solid var(--hct-secondary);
         }
         
         .benefit-card h3 {
             color: var(--hct-primary);
             margin-bottom: 1rem;
             font-size: 1.2rem;
+            font-weight: 700;
         }
         
         .benefit-card p {
@@ -313,7 +369,7 @@
         .reason-item {
             padding: 2rem;
             border-radius: 8px;
-            background: linear-gradient(135deg, rgba(30, 90, 150, 0.05) 0%, rgba(0, 163, 224, 0.05) 100%);
+            background: linear-gradient(135deg, rgba(0, 51, 102, 0.05) 0%, rgba(0, 102, 204, 0.05) 100%);
             border-top: 3px solid var(--hct-secondary);
         }
         
@@ -321,6 +377,7 @@
             color: var(--hct-primary);
             margin-bottom: 1rem;
             font-size: 1.15rem;
+            font-weight: 700;
         }
         
         .reason-item p {
@@ -330,7 +387,7 @@
         
         /* Audience Section */
         .for-everyone {
-            background-color: var(--hct-light);
+            background-color: var(--hct-light-gray);
         }
         
         .audience-grid {
@@ -350,7 +407,7 @@
         
         .audience-card:hover {
             border-color: var(--hct-secondary);
-            box-shadow: 0 6px 16px rgba(0, 163, 224, 0.15);
+            box-shadow: 0 6px 16px rgba(0, 102, 204, 0.15);
         }
         
         .audience-card strong {
@@ -462,7 +519,7 @@
             outline: none;
             border-color: var(--hct-accent);
             background-color: white;
-            box-shadow: 0 0 0 3px rgba(243, 146, 0, 0.2);
+            box-shadow: 0 0 0 3px rgba(255, 102, 0, 0.2);
         }
         
         /* Radio/Checkbox Group */
@@ -520,7 +577,7 @@
         }
         
         .form-error {
-            color: var(--hct-accent);
+            color: #FFD700;
             font-size: 0.85rem;
             margin-top: 0.3rem;
             display: none;
@@ -545,9 +602,9 @@
         }
         
         .submit-btn:hover:not(:disabled) {
-            background-color: #e08400;
+            background-color: #E55A00;
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(243, 146, 0, 0.4);
+            box-shadow: 0 4px 12px rgba(255, 102, 0, 0.4);
         }
         
         .submit-btn:disabled {
@@ -630,6 +687,7 @@
                 flex-direction: column;
                 gap: 1rem;
                 text-align: center;
+                width: 100%;
             }
             
             .hero h1 {
@@ -648,20 +706,21 @@
                 width: 100%;
             }
             
+            .logos-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .logo-divider {
+                display: none;
+            }
+            
             .partnership-content {
                 grid-template-columns: 1fr;
             }
             
             section h2 {
                 font-size: 1.6rem;
-            }
-            
-            .partnership-logos {
-                gap: 1rem;
-            }
-            
-            .partnership-logos img {
-                max-height: 80px;
             }
             
             .form-row {
@@ -672,6 +731,10 @@
             .checkbox-group {
                 flex-direction: column;
             }
+            
+            .logo-card img {
+                height: 120px;
+            }
         }
     </style>
 </head>
@@ -680,8 +743,23 @@
     <header>
         <div class="header-container">
             <div class="logo-section">
-                <img src="https://www.hct.ac.ae/images/logo.svg" alt="HCT Logo">
-                <img src="https://www.ub.edu/web/ub/ca/_jcr_content/par/header_copy_copy_copy/image.img.png/1519384632524.png" alt="University of Barcelona Logo">
+                <div class="logo-wrapper">
+                    <svg width="140" height="70" viewBox="0 0 140 70" xmlns="http://www.w3.org/2000/svg">
+                        <!-- HCT Logo SVG (simplified professional version) -->
+                        <rect width="140" height="70" fill="none"/>
+                        <text x="10" y="50" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="white">HCT</text>
+                        <text x="10" y="65" font-family="Arial, sans-serif" font-size="8" fill="rgba(255,255,255,0.9)">Higher Colleges of Technology</text>
+                    </svg>
+                </div>
+                <div class="logo-divider"></div>
+                <div class="logo-wrapper">
+                    <svg width="140" height="70" viewBox="0 0 140 70" xmlns="http://www.w3.org/2000/svg">
+                        <!-- UB Logo SVG -->
+                        <rect width="140" height="70" fill="none"/>
+                        <text x="5" y="50" font-family="Georgia, serif" font-size="28" font-weight="bold" fill="white">UB</text>
+                        <text x="5" y="65" font-family="Arial, sans-serif" font-size="8" fill="rgba(255,255,255,0.9)">Universitat Barcelona</text>
+                    </svg>
+                </div>
             </div>
             <nav>
                 <a href="#partnership">Partnership</a>
@@ -700,6 +778,37 @@
             <div class="cta-buttons">
                 <button class="btn btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'});">Express Interest</button>
                 <button class="btn btn-secondary" onclick="document.getElementById('partnership').scrollIntoView({behavior: 'smooth'});">Learn More</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partnership Logos Display -->
+    <section class="partnership-logos-section">
+        <div class="container">
+            <h2 style="margin-bottom: 2rem;">A Global Partnership</h2>
+            <div class="logos-container">
+                <div class="logo-card">
+                    <svg width="180" height="180" viewBox="0 0 180 180" xmlns="http://www.w3.org/2000/svg">
+                        <!-- HCT Professional Logo -->
+                        <rect width="180" height="180" fill="white" rx="10"/>
+                        <rect x="15" y="15" width="150" height="150" fill="#003366" rx="8"/>
+                        <text x="90" y="95" font-family="Arial, sans-serif" font-size="56" font-weight="bold" fill="white" text-anchor="middle">HCT</text>
+                        <text x="90" y="130" font-family="Arial, sans-serif" font-size="11" fill="rgba(255,255,255,0.9)" text-anchor="middle">Higher Colleges of Technology</text>
+                    </svg>
+                    <p>HCT</p>
+                </div>
+                <div class="logo-plus">+</div>
+                <div class="logo-card">
+                    <svg width="180" height="180" viewBox="0 0 180 180" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Universitat Barcelona Logo -->
+                        <rect width="180" height="180" fill="white" rx="10"/>
+                        <rect x="15" y="15" width="150" height="150" fill="#003366" rx="8"/>
+                        <text x="90" y="80" font-family="Georgia, serif" font-size="48" font-weight="bold" fill="white" text-anchor="middle">UB</text>
+                        <text x="90" y="110" font-family="Arial, sans-serif" font-size="10" fill="#FF6600" text-anchor="middle" font-weight="bold">UNIVERSITAT DE</text>
+                        <text x="90" y="128" font-family="Arial, sans-serif" font-size="10" fill="#FF6600" text-anchor="middle" font-weight="bold">BARCELONA</text>
+                    </svg>
+                    <p>Universitat de Barcelona</p>
+                </div>
             </div>
         </div>
     </section>
@@ -742,16 +851,24 @@
                         <li>Access to faculty expertise and research opportunities</li>
                     </ul>
                 </div>
-                <div class="partnership-logos">
-                    <div>
-                        <img src="https://www.hct.ac.ae/images/logo.svg" alt="HCT">
-                        <p style="text-align: center; margin-top: 1rem; color: var(--hct-primary); font-weight: 600;">HCT</p>
-                    </div>
-                    <div style="font-size: 2rem; color: var(--hct-secondary);">+</div>
-                    <div>
-                        <img src="https://www.ub.edu/web/ub/ca/_jcr_content/par/header_copy_copy_copy/image.img.png/1519384632524.png" alt="University of Barcelona">
-                        <p style="text-align: center; margin-top: 1rem; color: var(--hct-primary); font-weight: 600;">UB</p>
-                    </div>
+                <div style="text-align: center;">
+                    <p style="color: var(--hct-primary); font-weight: 700; margin-bottom: 2rem; font-size: 1.2rem;">Leading Innovation in Nursing Education</p>
+                    <svg width="280" height="200" viewBox="0 0 280 200" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Decorative partnership graphic -->
+                        <circle cx="70" cy="100" r="50" fill="#E6F2FF" stroke="#0066CC" stroke-width="2"/>
+                        <text x="70" y="110" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#003366" text-anchor="middle">HCT</text>
+                        
+                        <path d="M 120 100 L 160 100" stroke="#FF6600" stroke-width="3" marker-end="url(#arrowhead)"/>
+                        <defs>
+                            <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                                <polygon points="0 0, 10 3, 0 6" fill="#FF6600"/>
+                            </marker>
+                        </defs>
+                        
+                        <circle cx="210" cy="100" r="50" fill="#E6F2FF" stroke="#0066CC" stroke-width="2"/>
+                        <text x="210" y="105" font-family="Georgia, serif" font-size="18" font-weight="bold" fill="#003366" text-anchor="middle">UB</text>
+                        <text x="210" y="125" font-family="Arial, sans-serif" font-size="8" fill="#003366" text-anchor="middle">Barcelona</text>
+                    </svg>
                 </div>
             </div>
         </div>
@@ -1040,42 +1157,36 @@
             
             let isValid = true;
             
-            // Validate First Name
             const firstName = document.getElementById('firstName').value.trim();
             if (!firstName) {
                 document.getElementById('firstNameError').classList.add('show');
                 isValid = false;
             }
             
-            // Validate Last Name
             const lastName = document.getElementById('lastName').value.trim();
             if (!lastName) {
                 document.getElementById('lastNameError').classList.add('show');
                 isValid = false;
             }
             
-            // Validate Email
             const email = document.getElementById('email').value.trim();
             if (!validateEmail(email)) {
                 document.getElementById('emailError').classList.add('show');
                 isValid = false;
             }
             
-            // Validate Phone
             const phone = document.getElementById('phone').value.trim();
             if (!validatePhone(phone)) {
                 document.getElementById('phoneError').classList.add('show');
                 isValid = false;
             }
             
-            // Validate Country
             const country = document.getElementById('country').value;
             if (!country) {
                 document.getElementById('countryError').classList.add('show');
                 isValid = false;
             }
             
-            // Validate Primary Interest
             const interest = document.querySelector('input[name="interest"]:checked');
             if (!interest) {
                 document.getElementById('interestError').classList.add('show');
@@ -1089,7 +1200,6 @@
                 return;
             }
             
-            // Collect form data
             const interests = [];
             document.querySelectorAll('input[name="interests"]:checked').forEach(checkbox => {
                 interests.push(checkbox.value);
@@ -1108,27 +1218,21 @@
                 userAgent: navigator.userAgent
             };
             
-            // Log to console (in production, this would be sent to a backend service)
             console.log('Survey submitted:', formData);
             
-            // Show success message
             messageDiv.style.display = 'block';
             messageDiv.className = 'success';
             messageDiv.textContent = '✓ Thank you! Your interest survey has been submitted successfully. We will contact you within 2 business days.';
             
-            // Reset form
             form.reset();
             
-            // Scroll to message
             messageDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
             
-            // Hide message after 6 seconds
             setTimeout(() => {
                 messageDiv.style.display = 'none';
             }, 6000);
         }
 
-        // Smooth scroll behavior for navigation
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 const href = this.getAttribute('href');
