@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HCT & University of Barcelona - Master of Science in Nursing Partnership</title>
+    <meta name="description" content="Discover the HCT partnership with the University of Barcelona for a globally-respected Master of Science in Nursing program. Premium academic quality with local accessibility.">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        /* HCT Color Palette */
+        :root {
+            --hct-primary: #1E5A96;
+            --hct-secondary: #00A3E0;
+            --hct-accent: #F39200;
+            --hct-dark: #1a1a1a;
+            --hct-light: #f5f5f5;
+            --hct-text: #333333;
+            --hct-border: #e0e0e0;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--hct-text);
+            background-color: #ffffff;
+        }
+        
+        /* Header & Navigation */
+        header {
+            background: linear-gradient(135deg, var(--hct-primary) 0%, var(--hct-secondary) 100%);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo-section {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .logo-section img {
+            height: 50px;
+            object-fit: contain;
+        }
+        
+        nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s ease;
+        }
+        
+        nav a:hover {
+            opacity: 0.8;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--hct-primary) 0%, var(--hct-secondary) 100%);
+            color: white;
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+        
+        .hero .subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 0.9rem 2rem;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn-primary {
+            background-color: var(--hct-accent);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: #e08400;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(243, 146, 0, 0.3);
+        }
+        
+        .btn-secondary {
+            background-color: white;
+            color: var(--hct-primary);
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--hct-light);
+            transform: translateY(-2px);
+        }
+        
+        /* Partnership Highlight */
+        .partnership-highlight {
+            background-color: var(--hct-light);
+            padding: 4rem 2rem;
+        }
+        
+        .highlight-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .highlight-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--hct-accent);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .highlight-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+        }
+        
+        .highlight-card .label {
+            color: var(--hct-secondary);
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+        
+        .highlight-card strong {
+            color: var(--hct-primary);
+            font-size: 1.1rem;
+        }
+        
+        /* Section Headers */
+        section {
+            padding: 4rem 2rem;
+        }
+        
+        section h2 {
+            font-size: 2rem;
+            color: var(--hct-primary);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        section .section-intro {
+            text-align: center;
+            color: #666;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 1.05rem;
+        }
+        
+        /* About Partnership Section */
+        .about-partnership {
+            background-color: white;
+        }
+        
+        .partnership-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            margin-top: 2rem;
+        }
+        
+        .partnership-text h3 {
+            color: var(--hct-primary);
+            font-size: 1.4rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .partnership-text ul {
+            list-style: none;
+            margin-top: 1.5rem;
+        }
+        
+        .partnership-text li {
+            padding: 0.7rem 0;
+            padding-left: 2rem;
+            position: relative;
+            color: #555;
+            line-height: 1.7;
+        }
+        
+        .partnership-text li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--hct-accent);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .partnership-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+        
+        .partnership-logos img {
+            max-height: 120px;
+            object-fit: contain;
+        }
+        
+        /* Program Benefits */
+        .benefits {
+            background-color: var(--hct-light);
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .benefit-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        
+        .benefit-card h3 {
+            color: var(--hct-primary);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        .benefit-card p {
+            color: #666;
+            line-height: 1.7;
+        }
+        
+        /* Why Choose Section */
+        .why-choose {
+            background-color: white;
+        }
+        
+        .reasons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2.5rem;
+            margin-top: 2rem;
+        }
+        
+        .reason-item {
+            padding: 2rem;
+            border-radius: 8px;
+            background: linear-gradient(135deg, rgba(30, 90, 150, 0.05) 0%, rgba(0, 163, 224, 0.05) 100%);
+            border-top: 3px solid var(--hct-secondary);
+        }
+        
+        .reason-item h3 {
+            color: var(--hct-primary);
+            margin-bottom: 1rem;
+            font-size: 1.15rem;
+        }
+        
+        .reason-item p {
+            color: #666;
+            line-height: 1.7;
+        }
+        
+        /* Audience Section */
+        .for-everyone {
+            background-color: var(--hct-light);
+        }
+        
+        .audience-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .audience-card {
+            background: white;
+            padding: 2.5rem 2rem;
+            border-radius: 8px;
+            border: 2px solid var(--hct-border);
+            transition: all 0.3s ease;
+        }
+        
+        .audience-card:hover {
+            border-color: var(--hct-secondary);
+            box-shadow: 0 6px 16px rgba(0, 163, 224, 0.15);
+        }
+        
+        .audience-card strong {
+            color: var(--hct-primary);
+            font-size: 1.1rem;
+            display: block;
+            margin-bottom: 1rem;
+        }
+        
+        .audience-card p {
+            color: #666;
+            line-height: 1.7;
+        }
+        
+        /* Form Section */
+        .contact-form-section {
+            background: linear-gradient(135deg, var(--hct-primary) 0%, var(--hct-secondary) 100%);
+            color: white;
+        }
+        
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .form-intro {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+        
+        .form-intro h2 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+        
+        .form-intro p {
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-benefits-list {
+            background: rgba(255,255,255,0.1);
+            padding: 1.5rem;
+            border-radius: 4px;
+            margin-bottom: 2rem;
+            border-left: 4px solid var(--hct-accent);
+        }
+        
+        .form-benefits-list span {
+            display: block;
+            margin: 0.7rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .form-benefits-list span:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--hct-accent);
+            font-weight: bold;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: white;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.9rem;
+            border: none;
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: 1rem;
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(243, 146, 0, 0.3);
+        }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 1rem;
+            background-color: var(--hct-accent);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 1.05rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+        
+        .submit-btn:hover {
+            background-color: #e08400;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(243, 146, 0, 0.4);
+        }
+        
+        #formMessage {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            border-radius: 4px;
+            text-align: center;
+            font-weight: 600;
+            display: none;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--hct-dark);
+            color: white;
+            padding: 3rem 2rem;
+            margin-top: 0;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .footer-section h3 {
+            color: var(--hct-accent);
+            margin-bottom: 1rem;
+            font-size: 1.05rem;
+        }
+        
+        .footer-section p,
+        .footer-section a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            margin-bottom: 0.5rem;
+            line-height: 1.7;
+        }
+        
+        .footer-section a:hover {
+            color: var(--hct-accent);
+        }
+        
+        .footer-bottom {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+            color: rgba(255,255,255,0.6);
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            nav {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .hero .subtitle {
+                font-size: 1rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+            }
+            
+            .btn {
+                width: 100%;
+            }
+            
+            .partnership-content {
+                grid-template-columns: 1fr;
+            }
+            
+            section h2 {
+                font-size: 1.6rem;
+            }
+            
+            .partnership-logos {
+                gap: 1rem;
+            }
+            
+            .partnership-logos img {
+                max-height: 80px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo-section">
+                <img src="https://www.hct.ac.ae/images/logo.svg" alt="HCT Logo">
+                <img src="https://www.ub.edu/web/ub/ca/_jcr_content/par/header_copy_copy_copy/image.img.png/1519384632524.png" alt="University of Barcelona Logo">
+            </div>
+            <nav>
+                <a href="#partnership">Partnership</a>
+                <a href="#benefits">Benefits</a>
+                <a href="#why-choose">Why Choose</a>
+                <a href="#contact">Get Started</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Advance Your Nursing Leadership Globally</h1>
+            <p class="subtitle">A prestigious Master of Science in Nursing partnership between HCT and the University of Barcelona. Premium academic quality with local accessibility.</p>
+            <div class="cta-buttons">
+                <button class="btn btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'});">Express Interest</button>
+                <button class="btn btn-secondary" onclick="document.getElementById('partnership').scrollIntoView({behavior: 'smooth'});">Learn More</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partnership Highlights -->
+    <section class="partnership-highlight">
+        <div class="container">
+            <div class="highlight-grid">
+                <div class="highlight-card">
+                    <div class="label">Academic Excellence</div>
+                    <strong>University of Barcelona Prestige</strong>
+                </div>
+                <div class="highlight-card">
+                    <div class="label">Local Delivery</div>
+                    <strong>Accessible, Personalized Support</strong>
+                </div>
+                <div class="highlight-card">
+                    <div class="label">Career Growth</div>
+                    <strong>EU & International Pathways</strong>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Partnership -->
+    <section id="partnership" class="about-partnership">
+        <div class="container">
+            <h2>The Partnership</h2>
+            <p class="section-intro">A transformational collaboration bringing world-class nursing education to the region</p>
+            
+            <div class="partnership-content">
+                <div class="partnership-text">
+                    <h3>What This Partnership Means for You</h3>
+                    <p>HCT is partnering with the University of Barcelona, one of Europe's most respected institutions, to deliver a globally-recognized Master of Science in Nursing (MSN) program. This is more than an online degree—it's a pathway to advanced healthcare leadership.</p>
+                    <ul>
+                        <li>High-caliber academic partnership with a globally-respected institution</li>
+                        <li>Strong local delivery model designed for working professionals</li>
+                        <li>Meaningful career positioning for advanced healthcare leadership</li>
+                        <li>CHED-aligned framework with clear professional development focus</li>
+                        <li>Access to faculty expertise and research opportunities</li>
+                    </ul>
+                </div>
+                <div class="partnership-logos">
+                    <div>
+                        <img src="https://www.hct.ac.ae/images/logo.svg" alt="HCT">
+                        <p style="text-align: center; margin-top: 1rem; color: var(--hct-primary); font-weight: 600;">HCT</p>
+                    </div>
+                    <div style="font-size: 2rem; color: var(--hct-secondary);">+</div>
+                    <div>
+                        <img src="https://www.ub.edu/web/ub/ca/_jcr_content/par/header_copy_copy_copy/image.img.png/1519384632524.png" alt="University of Barcelona">
+                        <p style="text-align: center; margin-top: 1rem; color: var(--hct-primary); font-weight: 600;">UB</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Program Benefits -->
+    <section id="benefits" class="benefits">
+        <div class="container">
+            <h2>Program Benefits</h2>
+            <p class="section-intro">Comprehensive support for your academic and professional journey</p>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <h3>Premium Academic Quality</h3>
+                    <p>Access to a pathway developed by one of Europe's leading universities, with faculty expertise and research excellence embedded throughout.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>Flexible Learning Model</h3>
+                    <p>Study while working. A design that respects your professional commitments and enables sustainable progress.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>Personalized Support</h3>
+                    <p>Guided by experienced advisors who understand the healthcare landscape and your career aspirations.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>Career Acceleration</h3>
+                    <p>An MSN opens doors to leadership roles, specializations, and opportunities across Spain and the EU healthcare systems.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>Professional Network</h3>
+                    <p>Connect with peers and faculty from diverse healthcare backgrounds and build lasting professional relationships.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>Credential Recognition</h3>
+                    <p>A degree backed by the University of Barcelona carries weight and credibility in professional contexts worldwide.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose -->
+    <section id="why-choose" class="why-choose">
+        <div class="container">
+            <h2>Why Choose This Partnership</h2>
+            <p class="section-intro">Clear reasons to invest in your nursing leadership development</p>
+            
+            <div class="reasons-grid">
+                <div class="reason-item">
+                    <h3>Trusted Academic Standards</h3>
+                    <p>University of Barcelona brings centuries of academic excellence and a commitment to rigorous, meaningful education in healthcare.</p>
+                </div>
+                <div class="reason-item">
+                    <h3>Regional Expertise</h3>
+                    <p>HCT's deep understanding of the local healthcare context combined with global academic rigor creates a truly responsive program.</p>
+                </div>
+                <div class="reason-item">
+                    <h3>Future-Ready Opportunities</h3>
+                    <p>Opens pathways to leadership roles, specializations, and career growth across healthcare systems in the EU and beyond.</p>
+                </div>
+                <div class="reason-item">
+                    <h3>Clear Career Direction</h3>
+                    <p>MSN graduates are positioned for advancement in clinical practice, education, research, and healthcare administration.</p>
+                </div>
+                <div class="reason-item">
+                    <h3>Support That Feels Personal</h3>
+                    <p>Not just a degree program—a partnership designed to support your success from enrollment through graduation and beyond.</p>
+                </div>
+                <div class="reason-item">
+                    <h3>Credible & Respected</h3>
+                    <p>A University of Barcelona degree is recognized internationally, giving you a competitive edge in the global healthcare market.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- For Everyone -->
+    <section class="for-everyone">
+        <div class="container">
+            <h2>For Everyone</h2>
+            <p class="section-intro">Whether you're starting your nursing journey or advancing your leadership, there's a path for you</p>
+            
+            <div class="audience-grid">
+                <div class="audience-card">
+                    <strong>For Nursing Students</strong>
+                    <p>Access a world-class postgraduate pathway with clear progression from undergraduate studies. Build specialized expertise and prepare for advanced nursing roles.</p>
+                </div>
+                <div class="audience-card">
+                    <strong>For Healthcare Professionals</strong>
+                    <p>Advance your leadership profile and expand your capabilities. An MSN positions you for roles in clinical leadership, education, quality improvement, and management.</p>
+                </div>
+                <div class="audience-card">
+                    <strong>For Educational Institutions</strong>
+                    <p>Offer a differentiated, high-value partnership to your students and faculty. Strengthen your institution's academic portfolio with a globally-respected partner.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section id="contact" class="contact-form-section">
+        <div class="container form-container">
+            <div class="form-intro">
+                <h2>Start Your Journey Today</h2>
+                <p>Share your information and a member of our partnership team will reach out with personalized guidance about the program, timeline, and next steps.</p>
+                <div class="form-benefits-list">
+                    <span>Receive a personalized program briefing</span>
+                    <span>Get detailed timeline and eligibility information</span>
+                    <span>Explore partnership options that fit your goals</span>
+                </div>
+            </div>
+
+            <form id="contactForm" onsubmit="handleFormSubmit(event)">
+                <div class="form-group">
+                    <label for="name">Full Name *</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Mobile Number</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+
+                <div class="form-group">
+                    <label for="interest">Primary Interest *</label>
+                    <select id="interest" name="interest" required>
+                        <option value="">-- Select --</option>
+                        <option value="student">I am a nursing student</option>
+                        <option value="professional">I am a healthcare professional</option>
+                        <option value="institution">I represent an institution</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="action">I would like to *</label>
+                    <select id="action" name="action" required>
+                        <option value="">-- Select --</option>
+                        <option value="learn">Learn more about the program</option>
+                        <option value="briefing">Request a personalized briefing</option>
+                        <option value="timeline">Get application timeline and requirements</option>
+                        <option value="partnership">Explore partnership opportunities</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">What would you like to know most?</label>
+                    <textarea id="message" name="message" placeholder="Share any questions or context about your interests..."></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">Send Request</button>
+                <p id="formMessage"></p>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>HCT & University of Barcelona</h3>
+                    <p>Master of Science in Nursing Partnership</p>
+                    <p style="margin-top: 1rem; color: rgba(255,255,255,0.6); font-size: 0.9rem;">Advancing healthcare education through academic excellence and regional expertise.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <a href="#partnership">About Partnership</a>
+                    <a href="#benefits">Program Benefits</a>
+                    <a href="#why-choose">Why Choose</a>
+                    <a href="#contact">Get Started</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Information</h3>
+                    <p><strong>Email:</strong><br><a href="mailto:msn.partnership@hct.ac.ae">msn.partnership@hct.ac.ae</a></p>
+                    <p><strong>Program Inquiries:</strong><br>Available during business hours</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 HCT & University of Barcelona Partnership. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            
+            const form = document.getElementById('contactForm');
+            const messageDiv = document.getElementById('formMessage');
+            
+            // Collect form data
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                interest: document.getElementById('interest').value,
+                action: document.getElementById('action').value,
+                message: document.getElementById('message').value,
+                timestamp: new Date().toISOString()
+            };
+            
+            // Log to console (in production, this would be sent to a backend)
+            console.log('Form submitted:', formData);
+            
+            // Show success message
+            messageDiv.style.display = 'block';
+            messageDiv.style.backgroundColor = 'rgba(255, 255, 255, 0.2)';
+            messageDiv.style.color = 'white';
+            messageDiv.textContent = '✓ Thank you! Your request has been received. We\'ll contact you within 2 business days.';
+            
+            // Reset form
+            form.reset();
+            
+            // Hide message after 5 seconds
+            setTimeout(() => {
+                messageDiv.style.display = 'none';
+            }, 5000);
+        }
+
+        // Smooth scroll behavior for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#' && document.querySelector(href)) {
+                    e.preventDefault();
+                    document.querySelector(href).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
