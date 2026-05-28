@@ -22,10 +22,12 @@
             --hct-light: #f5f5f5;
             --hct-text: #333333;
             --hct-border: #e0e0e0;
+            --hct-success: #27ae60;
+            --hct-error: #e74c3c;
         }
         
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
             line-height: 1.6;
             color: var(--hct-text);
             background-color: #ffffff;
@@ -370,7 +372,7 @@
         }
         
         .form-container {
-            max-width: 600px;
+            max-width: 650px;
             margin: 0 auto;
         }
         
@@ -412,38 +414,120 @@
             font-weight: bold;
         }
         
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+        
+        .form-row.full {
+            grid-template-columns: 1fr;
+        }
+        
         .form-group {
             margin-bottom: 1.5rem;
         }
         
         .form-group label {
             display: block;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.6rem;
             font-weight: 600;
             color: white;
+            font-size: 0.95rem;
+        }
+        
+        .form-group label .required {
+            color: var(--hct-accent);
         }
         
         .form-group input,
-        .form-group select,
-        .form-group textarea {
+        .form-group select {
             width: 100%;
-            padding: 0.9rem;
-            border: none;
+            padding: 0.85rem;
+            border: 1px solid rgba(255,255,255,0.3);
             border-radius: 4px;
             font-family: inherit;
-            font-size: 1rem;
+            font-size: 0.95rem;
+            background-color: rgba(255,255,255,0.95);
+            color: var(--hct-text);
+            transition: all 0.3s ease;
         }
         
-        .form-group textarea {
-            resize: vertical;
-            min-height: 120px;
+        .form-group input::placeholder {
+            color: #999;
         }
         
         .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
+        .form-group select:focus {
             outline: none;
-            box-shadow: 0 0 0 3px rgba(243, 146, 0, 0.3);
+            border-color: var(--hct-accent);
+            background-color: white;
+            box-shadow: 0 0 0 3px rgba(243, 146, 0, 0.2);
+        }
+        
+        /* Radio/Checkbox Group */
+        .form-group-radio,
+        .form-group-checkbox {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group-radio label,
+        .form-group-checkbox label {
+            display: block;
+            margin-bottom: 0.6rem;
+            font-weight: 600;
+            color: white;
+            font-size: 0.95rem;
+        }
+        
+        .radio-group,
+        .checkbox-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+        
+        .radio-option,
+        .checkbox-option {
+            display: flex;
+            align-items: center;
+            padding: 0.6rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .radio-option:hover,
+        .checkbox-option:hover {
+            background-color: rgba(255,255,255,0.1);
+        }
+        
+        .radio-option input[type="radio"],
+        .checkbox-option input[type="checkbox"] {
+            width: auto;
+            margin-right: 0.8rem;
+            margin-bottom: 0;
+            accent-color: var(--hct-accent);
+            cursor: pointer;
+        }
+        
+        .radio-option label,
+        .checkbox-option label {
+            margin-bottom: 0;
+            font-weight: 500;
+            color: white;
+            cursor: pointer;
+        }
+        
+        .form-error {
+            color: var(--hct-accent);
+            font-size: 0.85rem;
+            margin-top: 0.3rem;
+            display: none;
+        }
+        
+        .form-error.show {
+            display: block;
         }
         
         .submit-btn {
@@ -460,10 +544,15 @@
             margin-top: 1rem;
         }
         
-        .submit-btn:hover {
+        .submit-btn:hover:not(:disabled) {
             background-color: #e08400;
             transform: translateY(-2px);
             box-shadow: 0 4px 12px rgba(243, 146, 0, 0.4);
+        }
+        
+        .submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
         }
         
         #formMessage {
@@ -473,6 +562,18 @@
             text-align: center;
             font-weight: 600;
             display: none;
+        }
+        
+        #formMessage.success {
+            background-color: rgba(39, 174, 96, 0.2);
+            color: white;
+            border: 1px solid rgba(39, 174, 96, 0.5);
+        }
+        
+        #formMessage.error {
+            background-color: rgba(231, 76, 60, 0.2);
+            color: white;
+            border: 1px solid rgba(231, 76, 60, 0.5);
         }
         
         /* Footer */
@@ -561,6 +662,15 @@
             
             .partnership-logos img {
                 max-height: 80px;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .radio-group,
+            .checkbox-group {
+                flex-direction: column;
             }
         }
     </style>
@@ -747,56 +857,130 @@
                 <h2>Start Your Journey Today</h2>
                 <p>Share your information and a member of our partnership team will reach out with personalized guidance about the program, timeline, and next steps.</p>
                 <div class="form-benefits-list">
-                    <span>Receive a personalized program briefing</span>
-                    <span>Get detailed timeline and eligibility information</span>
-                    <span>Explore partnership options that fit your goals</span>
+                    <span>Tailored program information based on your interests</span>
+                    <span>Direct connection with our partnership team</span>
+                    <span>Timeline and eligibility guidance for your location</span>
                 </div>
             </div>
 
             <form id="contactForm" onsubmit="handleFormSubmit(event)">
-                <div class="form-group">
-                    <label for="name">Full Name *</label>
-                    <input type="text" id="name" name="name" required>
+                <!-- Row 1: First Name & Last Name -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstName">First Name <span class="required">*</span></label>
+                        <input type="text" id="firstName" name="firstName" required placeholder="John">
+                        <div class="form-error" id="firstNameError">First name is required</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last Name <span class="required">*</span></label>
+                        <input type="text" id="lastName" name="lastName" required placeholder="Smith">
+                        <div class="form-error" id="lastNameError">Last name is required</div>
+                    </div>
                 </div>
 
-                <div class="form-group">
-                    <label for="email">Email Address *</label>
-                    <input type="email" id="email" name="email" required>
+                <!-- Row 2: Email & Phone -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="email">Email Address <span class="required">*</span></label>
+                        <input type="email" id="email" name="email" required placeholder="john.smith@example.com">
+                        <div class="form-error" id="emailError">Valid email is required</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number <span class="required">*</span></label>
+                        <input type="tel" id="phone" name="phone" required placeholder="+1 (555) 123-4567">
+                        <div class="form-error" id="phoneError">Valid phone number is required</div>
+                    </div>
                 </div>
 
-                <div class="form-group">
-                    <label for="phone">Mobile Number</label>
-                    <input type="tel" id="phone" name="phone">
+                <!-- Row 3: Current Location -->
+                <div class="form-row full">
+                    <div class="form-group">
+                        <label for="country">Current Country <span class="required">*</span></label>
+                        <select id="country" name="country" required>
+                            <option value="">-- Select Country --</option>
+                            <option value="AE">United Arab Emirates</option>
+                            <option value="SA">Saudi Arabia</option>
+                            <option value="KW">Kuwait</option>
+                            <option value="QA">Qatar</option>
+                            <option value="BH">Bahrain</option>
+                            <option value="OM">Oman</option>
+                            <option value="JO">Jordan</option>
+                            <option value="LB">Lebanon</option>
+                            <option value="EG">Egypt</option>
+                            <option value="PH">Philippines</option>
+                            <option value="ES">Spain</option>
+                            <option value="GB">United Kingdom</option>
+                            <option value="US">United States</option>
+                            <option value="CA">Canada</option>
+                            <option value="AU">Australia</option>
+                            <option value="IN">India</option>
+                            <option value="OTHER">Other</option>
+                        </select>
+                        <div class="form-error" id="countryError">Please select a country</div>
+                    </div>
                 </div>
 
-                <div class="form-group">
-                    <label for="interest">Primary Interest *</label>
-                    <select id="interest" name="interest" required>
-                        <option value="">-- Select --</option>
-                        <option value="student">I am a nursing student</option>
-                        <option value="professional">I am a healthcare professional</option>
-                        <option value="institution">I represent an institution</option>
-                        <option value="other">Other</option>
-                    </select>
+                <!-- Row 4: Area/Region (optional secondary) -->
+                <div class="form-row full">
+                    <div class="form-group">
+                        <label for="region">City/Region (Optional)</label>
+                        <input type="text" id="region" name="region" placeholder="e.g., Dubai, Abu Dhabi, Manila">
+                    </div>
                 </div>
 
-                <div class="form-group">
-                    <label for="action">I would like to *</label>
-                    <select id="action" name="action" required>
-                        <option value="">-- Select --</option>
-                        <option value="learn">Learn more about the program</option>
-                        <option value="briefing">Request a personalized briefing</option>
-                        <option value="timeline">Get application timeline and requirements</option>
-                        <option value="partnership">Explore partnership opportunities</option>
-                    </select>
+                <!-- Row 5: Primary Interest -->
+                <div class="form-group-radio">
+                    <label>Primary Interest <span class="required">*</span></label>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="radio" id="interest-student" name="interest" value="nursing-student" required>
+                            <label for="interest-student">Nursing Student - looking to advance my education</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="interest-professional" name="interest" value="healthcare-professional">
+                            <label for="interest-professional">Healthcare Professional - seeking career advancement</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="interest-educator" name="interest" value="educator">
+                            <label for="interest-educator">Educator - considering program partnership for my institution</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="interest-other" name="interest" value="other-interest">
+                            <label for="interest-other">Other - exploring the program</label>
+                        </div>
+                    </div>
+                    <div class="form-error" id="interestError">Please select your primary interest</div>
                 </div>
 
-                <div class="form-group">
-                    <label for="message">What would you like to know most?</label>
-                    <textarea id="message" name="message" placeholder="Share any questions or context about your interests..."></textarea>
+                <!-- Row 6: Areas of Interest (Checkboxes) -->
+                <div class="form-group-checkbox">
+                    <label>Areas of Interest (Select all that apply)</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="interest-clinical" name="interests" value="clinical-leadership">
+                            <label for="interest-clinical">Clinical Leadership & Practice</label>
+                        </div>
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="interest-education" name="interests" value="nursing-education">
+                            <label for="interest-education">Nursing Education</label>
+                        </div>
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="interest-management" name="interests" value="healthcare-management">
+                            <label for="interest-management">Healthcare Management & Administration</label>
+                        </div>
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="interest-research" name="interests" value="research">
+                            <label for="interest-research">Research & Evidence-Based Practice</label>
+                        </div>
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="interest-policy" name="interests" value="health-policy">
+                            <label for="interest-policy">Health Policy & Systems</label>
+                        </div>
+                    </div>
                 </div>
 
-                <button type="submit" class="submit-btn">Send Request</button>
+                <!-- Submit Button -->
+                <button type="submit" class="submit-btn">Submit Interest Survey</button>
                 <p id="formMessage"></p>
             </form>
         </div>
@@ -831,39 +1015,117 @@
     </footer>
 
     <script>
+        function validateEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
+        function validatePhone(phone) {
+            const phoneRegex = /^[\d\s\-\+\(\)]+$/;
+            return phoneRegex.test(phone) && phone.replace(/\D/g, '').length >= 10;
+        }
+
+        function clearErrors() {
+            document.querySelectorAll('.form-error').forEach(error => {
+                error.classList.remove('show');
+            });
+        }
+
         function handleFormSubmit(event) {
             event.preventDefault();
+            clearErrors();
             
             const form = document.getElementById('contactForm');
             const messageDiv = document.getElementById('formMessage');
             
+            let isValid = true;
+            
+            // Validate First Name
+            const firstName = document.getElementById('firstName').value.trim();
+            if (!firstName) {
+                document.getElementById('firstNameError').classList.add('show');
+                isValid = false;
+            }
+            
+            // Validate Last Name
+            const lastName = document.getElementById('lastName').value.trim();
+            if (!lastName) {
+                document.getElementById('lastNameError').classList.add('show');
+                isValid = false;
+            }
+            
+            // Validate Email
+            const email = document.getElementById('email').value.trim();
+            if (!validateEmail(email)) {
+                document.getElementById('emailError').classList.add('show');
+                isValid = false;
+            }
+            
+            // Validate Phone
+            const phone = document.getElementById('phone').value.trim();
+            if (!validatePhone(phone)) {
+                document.getElementById('phoneError').classList.add('show');
+                isValid = false;
+            }
+            
+            // Validate Country
+            const country = document.getElementById('country').value;
+            if (!country) {
+                document.getElementById('countryError').classList.add('show');
+                isValid = false;
+            }
+            
+            // Validate Primary Interest
+            const interest = document.querySelector('input[name="interest"]:checked');
+            if (!interest) {
+                document.getElementById('interestError').classList.add('show');
+                isValid = false;
+            }
+            
+            if (!isValid) {
+                messageDiv.style.display = 'block';
+                messageDiv.className = 'error';
+                messageDiv.textContent = '❌ Please fill in all required fields correctly.';
+                return;
+            }
+            
             // Collect form data
+            const interests = [];
+            document.querySelectorAll('input[name="interests"]:checked').forEach(checkbox => {
+                interests.push(checkbox.value);
+            });
+            
             const formData = {
-                name: document.getElementById('name').value,
-                email: document.getElementById('email').value,
-                phone: document.getElementById('phone').value,
-                interest: document.getElementById('interest').value,
-                action: document.getElementById('action').value,
-                message: document.getElementById('message').value,
-                timestamp: new Date().toISOString()
+                firstName: firstName,
+                lastName: lastName,
+                email: email,
+                phone: phone,
+                country: country,
+                region: document.getElementById('region').value || 'Not specified',
+                primaryInterest: interest.value,
+                areasOfInterest: interests.length > 0 ? interests : ['None selected'],
+                timestamp: new Date().toISOString(),
+                userAgent: navigator.userAgent
             };
             
-            // Log to console (in production, this would be sent to a backend)
-            console.log('Form submitted:', formData);
+            // Log to console (in production, this would be sent to a backend service)
+            console.log('Survey submitted:', formData);
             
             // Show success message
             messageDiv.style.display = 'block';
-            messageDiv.style.backgroundColor = 'rgba(255, 255, 255, 0.2)';
-            messageDiv.style.color = 'white';
-            messageDiv.textContent = '✓ Thank you! Your request has been received. We\'ll contact you within 2 business days.';
+            messageDiv.className = 'success';
+            messageDiv.textContent = '✓ Thank you! Your interest survey has been submitted successfully. We will contact you within 2 business days.';
             
             // Reset form
             form.reset();
             
-            // Hide message after 5 seconds
+            // Scroll to message
+            messageDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            
+            // Hide message after 6 seconds
             setTimeout(() => {
                 messageDiv.style.display = 'none';
-            }, 5000);
+            }, 6000);
         }
 
         // Smooth scroll behavior for navigation
